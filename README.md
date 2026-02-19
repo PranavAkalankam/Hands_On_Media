@@ -281,7 +281,7 @@ Novelty:(Not seen in simple systems)
 ```
 Problem: Using other people's datasets
 Solution: Create our own gesture dataset
-- 9 gestures × 400 images = 3,600 images
+- 8 gestures × 400 images = 3,200 images
 - Different lighting, angles, hand sizes
 - Real-world diverse data
 Impact: Model learns from OUR use case
@@ -365,7 +365,7 @@ This is not just following research papers. We created a practical, deployable s
 
 #### 5.2.1 Gesture Selection
 
-We selected 9 gestures for complete media control:
+We selected 8 gestures for complete media control:
 
 | # | Gesture | Purpose | Samples |
 |---|---------|---------|---------|
@@ -379,7 +379,7 @@ We selected 9 gestures for complete media control:
 | 8 | PREVIOUS | Previous video | 400 |
 | **TOTAL** | - | - | **3,200** |
 
-**Why these 9?**
+**Why these 8?**
 - Cover all media control needs
 - Intuitive (easy to remember)
 - Distinct (easy to recognize)
@@ -473,7 +473,7 @@ After collection:
 - Remove blurry images
 - Remove images without visible hands
 - Remove incorrect gestures
-- Final dataset: ~3,600 clean images
+- Final dataset: ~3,200 clean images
 ```
 
 ### 5.4 Dataset Structure
@@ -500,7 +500,7 @@ dataset/
     ├── validation/ (15% = 540 samples)
     └── test/ (15% = 540 samples)
 
-Total: 3,600 images
+Total: 3,200 images
 ```
 
 ### 5.5 Data Preprocessing
@@ -539,8 +539,8 @@ for gesture_idx, gesture in enumerate(GESTURES):
             X.append(landmarks)
             y.append(gesture_idx)
 
-X = np.array(X)  # Shape: (3,600, 42)
-y = np.array(y)  # Shape: (3,600,)
+X = np.array(X)  # Shape: (3,200, 42)
+y = np.array(y)  # Shape: (3,200,)
 ```
 
 #### Step 3: Split Data
@@ -566,7 +566,7 @@ print(f"Testing: {len(X_test)} samples (15%)")
 
 **Final Dataset:**
 ```
-Total Images: 3,600
+Total Images: 3,200
 Total Samples After Processing: 3,420 (180 failed hand detection = 95% success rate)
 
 Distribution:
@@ -575,12 +575,12 @@ Distribution:
 - Testing: 513 samples (15%)
 
 Per Gesture Distribution:
-- Each gesture: 380 samples (3,420 ÷ 9)
+- Each gesture: 380 samples (3,420 ÷ 8)
 - Balanced dataset (equal samples per class)
 
 Data Characteristics:
 - Input: 42 values per sample (21 landmarks × 2 coordinates)
-- Output: 9 classes (gesture types)
+- Output: 8 classes (gesture types)
 - No missing values (invalid samples removed)
 - No outliers (quality controlled)
 ```
@@ -599,7 +599,7 @@ Data Characteristics:
 Hand gesture is NOT simple math.
 
 Input: 42 values (hand landmarks)
-Output: Which of 9 gestures?
+Output: Which of 8 gestures?
 
 Simple approach won't work:
 - Can't use simple if-else rules
@@ -675,13 +675,13 @@ ReLU ACTIVATION
 DROPOUT 0.2 (Remove 20%)
     ↓ (Reduced: 64 → 51)
 
-OUTPUT LAYER: 9 neurons (one per gesture)
+OUTPUT LAYER: 8 neurons (one per gesture)
     ↓
 SOFTMAX ACTIVATION
     ↓ (Convert to probabilities, sum = 1)
 
 OUTPUT
-    ↓ (9 probabilities, sum = 100%)
+    ↓ (8 probabilities, sum = 100%)
 ```
 
 #### 6.2.3 Model Architecture Code
@@ -716,7 +716,7 @@ def create_model(input_shape, num_classes):
         layers.Activation('relu'),
         layers.Dropout(0.2),
         
-        # Output layer (9 gestures)
+        # Output layer (8 gestures)
         layers.Dense(num_classes, activation='softmax')
     ])
     
@@ -952,7 +952,7 @@ After Quantization to Int8:
 models/
 ├── gesture_model_v2.h5           (Full model, 50MB)
 ├── gesture_model_v2.tflite       (Optimized, 5MB) ← USE THIS
-├── gesture_labels.txt            (9 gesture names)
+├── gesture_labels.txt            (8 gesture names)
 └── model_info.json               (Training info)
 ```
 
@@ -977,7 +977,7 @@ STOP
   "test_accuracy": 0.9412,
   "total_samples": 3420,
   "input_shape": [42],
-  "num_classes": 9
+  "num_classes": 8
 }
 ```
 
@@ -989,9 +989,9 @@ STOP
 | **Validation Data** | 513 samples |
 | **Test Data** | 513 samples |
 | **Input Shape** | 42 values (21 landmarks × 2) |
-| **Output Classes** | 9 gestures |
+| **Output Classes** | 8 gestures |
 | **Model Type** | Dense Neural Network |
-| **Layers** | 9 layers (3 dense + 3 batch norm + 3 dropout + output) |
+| **Layers** | 8 layers (3 dense + 3 batch norm + 3 dropout + output) |
 | **Parameters** | ~100,000 |
 | **Training Time** | 2-3 hours |
 | **Training Epochs** | 45 (stopped early) |
@@ -1114,7 +1114,7 @@ Input: 42 hand landmark values
 Process:
 1. Feed to neural network
 2. Forward propagation
-3. Get 9 gesture probabilities
+3. Get 8 gesture probabilities
 4. Pick highest probability
 Output: Gesture name + confidence
 Time: 0.18ms
@@ -1813,7 +1813,7 @@ Result: Fails for new people (different hand size, gesture style)
 ```
 Dataset Creation:
 - 5 different people (varied hand sizes)
-- 9 gestures × 400 samples = 3,600 images
+- 8 gestures × 400 samples = 3,200 images
 - Different lighting: bright, dim, shadows
 - Different angles: front, left, right, up, down
 - Different speeds: quick, slow, medium
@@ -2026,7 +2026,7 @@ Solution: Gesture control is hands-free alternative
    - Focus: Neural networks for gesture classification
 
 ### Datasets Used
-- Custom collected dataset: 3,600 images
+- Custom collected dataset: 3,200 images
   - 9 gestures
   - 5 different people
   - Various lighting and angles
@@ -2069,8 +2069,8 @@ Layer 3: Dense(64) + BatchNorm + ReLU + Dropout(0.2)
 ```
 
 **Output Layer:**
-- Dense(9) with Softmax
-- 9 gestures (one-hot encoded output)
+- Dense(8) with Softmax
+- 8 gestures (one-hot encoded output)
 
 **Total Parameters:** ~100,000
 
@@ -2091,7 +2091,7 @@ Layer 3: Dense(64) + BatchNorm + ReLU + Dropout(0.2)
 
 **Collection Summary:**
 ```
-Total images collected: 3,600
+Total images collected: 3,200
 Images processed: 3,420 (95% success rate)
 Images rejected: 180 (hand not detected clearly)
 
@@ -2144,7 +2144,7 @@ Testing:
 This project demonstrates that **touchless media control with face-based access is practical, achievable, and production-ready today**.
 
 By combining:
-- Custom hand gesture dataset (3,600 images)
+- Custom hand gesture dataset (3,200 images)
 - Optimized neural network (94.1% accuracy)
 - Face recognition access control (novel)
 - Jetson Nano deployment (affordable)
