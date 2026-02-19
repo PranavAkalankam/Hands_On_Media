@@ -377,7 +377,7 @@ We selected 9 gestures for complete media control:
 | 6 | SKIP_RIGHT | Forward 5s | 400 |
 | 7 | NEXT | Next video | 400 |
 | 8 | PREVIOUS | Previous video | 400 |
-| **TOTAL** | - | - | **3,600** |
+| **TOTAL** | - | - | **3,200** |
 
 **Why these 9?**
 - Cover all media control needs
@@ -392,8 +392,8 @@ We selected 9 gestures for complete media control:
 Equipment: Sony USB Camera (640x480 @ 30 FPS)
 Duration: 3-4 days
 People: 5 different people
-Samples per gesture per person: 80 images
-Total: 5 people × 9 gestures × 80 = 3,600 images
+Samples per gesture per person: 40 images
+Total: 5 people × 8 gestures × 40 = 3,200 images
 ```
 
 **Variation in Data (Important for robustness):**
