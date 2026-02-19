@@ -178,7 +178,7 @@ Hardware: Jetson Nano GPU
 
 **Question: Can we do this on Jetson Nano (small computer)?**
 
-**Answer: YES ✅ - More than capable**
+**Answer: YES  - More than capable**
 
 #### Hardware Specifications:
 ```
@@ -194,7 +194,7 @@ Our System Usage:
 - Memory: 300-400MB (well under 4GB)
 - Power: 3-4 watts (well under 60W)
 
-Conclusion: ✅ LOTS OF HEADROOM
+Conclusion:  LOTS OF HEADROOM
 ```
 
 ### 3.3 Cost Feasibility
@@ -235,7 +235,7 @@ Conclusion: ✅ LOTS OF HEADROOM
 
 ### 3.5 Feasibility Conclusion
 
-**Overall Feasibility: HIGHLY FEASIBLE ✅**
+**Overall Feasibility: HIGHLY FEASIBLE **
 
 - ✅ Technically possible (proven technologies)
 - ✅ Hardware capable (Jetson Nano sufficient)
@@ -243,7 +243,7 @@ Conclusion: ✅ LOTS OF HEADROOM
 - ✅ Time-realistic (2-3 weeks)
 - ✅ Scalable (can add more features)
 
-**Recommendation: PROCEED WITH IMPLEMENTATION** ✅
+**Recommendation: PROCEED WITH IMPLEMENTATION** 
 
 ---
 
@@ -274,7 +274,7 @@ Camera → Face Check → IF AUTHORIZED → Hand → Gesture → Action
 Problem: Traditional systems let anyone control
 Solution: Add face recognition as authorization gate
 Impact: Transforms demo into practical system
-Novelty: ⭐⭐⭐ (Not seen in simple systems)
+Novelty:(Not seen in simple systems)
 ```
 
 **2. Custom Dataset Creation (NEW)**
@@ -285,7 +285,7 @@ Solution: Create our own gesture dataset
 - Different lighting, angles, hand sizes
 - Real-world diverse data
 Impact: Model learns from OUR use case
-Novelty: ⭐⭐ (Custom data is novel)
+Novelty:(Custom data is novel)
 ```
 
 **3. Jetson Nano Optimization (NEW)**
@@ -296,7 +296,7 @@ Solution: Optimize for Jetson Nano
 - GPU acceleration
 - Smart cooldown system
 Impact: Makes it deployable on edge devices
-Novelty: ⭐⭐⭐ (Very practical)
+Novelty:(Very practical)
 ```
 
 **4. Smart Cooldown System (NEW)**
@@ -307,7 +307,7 @@ Solution: Per-gesture cooldown periods
 - VOLUME: 0.4s (allow rapid adjustment)
 - SKIP: 0.3s (rapid seeking OK)
 Impact: Clean, reliable user experience
-Novelty: ⭐⭐ (Good engineering)
+Novelty:(Good engineering)
 ```
 
 **5. Multi-User Session Management (NEW)**
@@ -318,20 +318,20 @@ Solution: Session-based access
 - 30-second timeout
 - Automatic cleanup
 Impact: True multi-user system
-Novelty: ⭐⭐ (Security feature)
+Novelty:(Security feature)
 ```
 
 ### 4.3 Comparison to Existing Systems
 
 | Feature | Traditional | Research | **Our System** |
 |---------|-----------|----------|---|
-| Gesture Recognition | ✅ Yes | ✅ Yes | ✅ Yes |
-| Face Recognition | ❌ No | ❌ No | ✅ **NEW** |
-| Access Control | ❌ No | ❌ No | ✅ **NEW** |
-| Multi-user | ⚠️ Partial | ⚠️ Partial | ✅ **Full** |
-| Jetson Nano | ❌ No | ❌ No | ✅ **YES** |
-| Custom Dataset | ❌ No | ⚠️ Sometimes | ✅ **YES** |
-| Production Ready | ❌ No | ❌ No | ✅ **YES** |
+| Gesture Recognition |  Yes |  Yes |  Yes |
+| Face Recognition |  No |  No |  **NEW** |
+| Access Control |  No |  No |  **NEW** |
+| Multi-user |  Partial |  Partial |  **Full** |
+| Jetson Nano |  No |  No |  **YES** |
+| Custom Dataset |  No |  Sometimes |  **YES** |
+| Production Ready |  No |  No |  **YES** |
 
 ### 4.4 Novel Aspects Summary
 
@@ -342,7 +342,7 @@ Novelty: ⭐⭐ (Security feature)
 4. **Multi-user security** (real-world need)
 5. **Production-ready implementation** (not just research)
 
-**Novelty Grade: HIGH ⭐⭐⭐⭐**
+**Novelty Grade: HIGH**
 
 This is not just following research papers. We created a practical, deployable system with real security features.
 
@@ -377,7 +377,6 @@ We selected 9 gestures for complete media control:
 | 6 | SKIP_RIGHT | Forward 5s | 400 |
 | 7 | NEXT | Next video | 400 |
 | 8 | PREVIOUS | Previous video | 400 |
-| 9 | STOP | Stop playing | 400 |
 | **TOTAL** | - | - | **3,600** |
 
 **Why these 9?**
