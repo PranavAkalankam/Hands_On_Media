@@ -492,8 +492,8 @@ dataset/
 │   ├── skip_left/ (400 images)
 │   ├── skip_right/ (400 images)
 │   ├── next/ (400 images)
-│   ├── previous/ (400 images)
-│   └── stop/ (400 images)
+│   └─── previous/ (400 images)
+│  
 │
 └── processed_landmarks/
     ├── train/ (70% = 2,520 samples)
@@ -890,7 +890,6 @@ SKIP_LEFT:  100.00%
 SKIP_RIGHT: 100.00%
 NEXT:       80.00%   ← Hardest gesture
 PREVIOUS:   85.00%   ← Hardest gesture
-STOP:       94.00%
 
 Average: 94.12% ✓
 ```
@@ -966,14 +965,14 @@ SKIP_LEFT
 SKIP_RIGHT
 NEXT
 PREVIOUS
-STOP
+
 ```
 
 **model_info.json:**
 ```json
 {
   "gestures": ["PLAY", "PAUSE", "VOLUME_UP", "VOLUME_DOWN", 
-               "SKIP_LEFT", "SKIP_RIGHT", "NEXT", "PREVIOUS", "STOP"],
+               "SKIP_LEFT", "SKIP_RIGHT", "NEXT", "PREVIOUS"],
   "test_accuracy": 0.9412,
   "total_samples": 3420,
   "input_shape": [42],
@@ -1369,7 +1368,6 @@ Epochs Completed: 45 (stopped early)
 | SKIP_RIGHT | 100% | 57 | 0 |
 | NEXT | 80% | 57 | 11 |
 | PREVIOUS | 85% | 57 | 8 |
-| STOP | 94% | 57 | 3 |
 | **AVERAGE** | **94.1%** | **513** | **31** |
 
 **Observations:**
